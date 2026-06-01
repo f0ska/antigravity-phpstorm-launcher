@@ -15,6 +15,8 @@ agy
 
 ## Build
 
+Download the latest plugin ZIP from [GitHub Releases](https://github.com/f0ska/antigravity-phpstorm-launcher/releases/latest/download/antigravity-phpstorm-launcher.zip).
+
 Use Java 21 JDK and Gradle, then run:
 
 ```bash

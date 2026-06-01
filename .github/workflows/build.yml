@@ -5,8 +5,13 @@ on:
     branches:
       - main
       - master
+    tags:
+      - "v*"
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -30,9 +35,20 @@ jobs:
       - name: Build plugin
         run: ./gradlew buildPlugin
 
+      - name: Prepare distributable
+        run: |
+          mkdir -p release
+          cp build/distributions/*.zip release/antigravity-phpstorm-launcher.zip
+
       - name: Upload plugin ZIP
         uses: actions/upload-artifact@v4
         with:
           name: antigravity-phpstorm-launcher
-          path: build/distributions/*.zip
+          path: release/antigravity-phpstorm-launcher.zip
           if-no-files-found: error
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/antigravity-phpstorm-launcher.zip
