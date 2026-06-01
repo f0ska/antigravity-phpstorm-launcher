@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>dev.vishv.phpstorm.antigravity</id>
+    <name>Antigravity Launcher</name>
+    <vendor email="dev@localhost">Vishv</vendor>
+
+    <description>
+        Adds a PhpStorm toolbar action that opens a Terminal tab named Antigravity and runs agy.
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
+
+    <actions>
+        <action
+            id="dev.vishv.phpstorm.antigravity.OpenAntigravityTerminal"
+            class="dev.vishv.phpstorm.antigravity.OpenAntigravityTerminalAction"
+            text="Antigravity"
+            description="Open Antigravity in a new terminal tab"
+            icon="/icons/antigravity.png">
+            <add-to-group group-id="MainToolbarRight" anchor="last"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
