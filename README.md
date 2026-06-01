@@ -8,6 +8,11 @@ When clicked, it opens a new Terminal tab named `Antigravity` and runs:
 agy
 ```
 
+## Features
+
+- Runs `agy` inside a normal shell session, so exiting Antigravity returns to the terminal prompt.
+- Reuses the existing `Antigravity` tab and inserts the current editor file path when Antigravity is already running.
+
 ## Build
 
 Use Java 21 JDK and Gradle, then run:
